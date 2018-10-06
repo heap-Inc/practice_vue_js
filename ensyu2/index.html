@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.jsの演習-その2-</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 演習④ v-forディレクティブを使ってオプションで指定した配列を順番に表示する -->
+        <div>
+            <ol>
+                <li v-for="language in languages ">{{ language }}</li>
+            </ol>
+        </div>
+        <hr>
+        <!-- 演習⑤ v-onを使ってクリック時イベントを発火させる  -->
+        <div>
+            <button v-on:click="click">click</button>
+            <p>{{ msg }}</p>
+        </div>
+        <hr>
+        <!-- 演習⑥ 双方向データバインディングをv-modelを使って実装する  -->
+        <div>
+            <p v-model="modelMsg">{{ modelMsg }}</p>
+            <input type="text" v-model="modelMsg">
+            <br>
+            <pre>
+                {{ $data }}
+            </pre>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
