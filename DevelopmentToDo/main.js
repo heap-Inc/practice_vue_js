@@ -5,6 +5,8 @@ var toDoApp = new Vue({
 
     },
     methods: {
-
+        addToDoList: function(event) {
+            
+        }
     },
 })
