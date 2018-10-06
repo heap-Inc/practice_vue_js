@@ -11,12 +11,17 @@
     <div id="toDoApp" class="container">
         <h2>ToDoリスト</h2>
         <form v-on:submit.prevent>
+            <!-- 入力フォームが空の場合のみエラーメッセージが表示される -->
+            <div v-if="toggle">
+                <span v-bind="errMsg">{{ errMsg }}</span>
+            </div>
             <input type="text" v-model="newItem">
             <button class="btn btn-primary" v-on:click="addToDoList">追加</button>
         </form>
         <div class="container">
             <ol>
-                <li v-for="todo in todos">{{ todo }}</li>
+                <!-- v-forディレクティブで配列todosのitemプロパティを一つずつ抜き出す -->
+                <li v-for="todo in todos">{{ todo.item }}</li>
             </ol>
         </div>
     </div>
