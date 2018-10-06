@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+/* v-bind:calssのdoneがtrueの場合消し線を表示 */
+span.done {
+    text-decoration: line-through;
+}
+
+/*  */
+.err-color {
+    color: brown;
+    font-weight: bold;
+}
