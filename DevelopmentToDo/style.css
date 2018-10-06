@@ -4,9 +4,3 @@
 span.done {
     text-decoration: line-through;
 }
-
-/*  */
-.err-color {
-    color: brown;
-    font-weight: bold;
-}

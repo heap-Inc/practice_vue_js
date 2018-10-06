@@ -9,26 +9,36 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-    <div id="toDoApp" class="container">
-        <h2>ToDoリスト</h2>
-        <form v-on:submit.prevent>
-            <!-- 入力フォームが空の場合のみエラーメッセージが表示される -->
-            <div v-if="toggle">
-                <span v-bind="errMsg" class="err-color">{{ errMsg }}</span>
+    <div id="toDoApp">
+        <div v-if="toggle" class="container-fluid">
+            <p v-bind="errMsg" class="alert alert-danger" role="alert">{{ errMsg }}</p>
+        </div>
+        <div class="mx-auto" style="width: 50%;">
+            <div class="container m-3">
+                <h2>ToDoリスト</h2>
             </div>
-            <input type="text" v-model="newItem">
-            <button class="btn btn-primary" v-on:click="addToDoList">追加</button>
-        </form>
-        <div class="container">
-            <ol>
-                <!-- v-forディレクティブで配列todosのitemプロパティを一つずつ抜き出す -->
-                <li v-for="(todo, index) in todos">
-                    <input type="checkbox" v-model="todo.isDone">
-                    <!-- ↓v-bindでcssクラスをバインディングする記述方法 -->
-                    <span v-bind:class="{ done: todo.isDone }">{{ todo.item }}</span>
-                    <button class="btn btn-danger" v-on:click="deleteToDoList(index)">削除</button>
-                </li>
-            </ol>
+            <div class="container m-3">
+                <form v-on:submit.prevent>
+                    <!-- 入力フォームが空の場合のみエラーメッセージが表示される -->
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">add New Task....</label>
+                        <input type="text" v-model="newItem" class="form-control">
+                    </div>
+                    <button class="btn btn-primary" v-on:click="addToDoList">追加</button>
+                </form>
+                <table class="table table-sm">
+                    <thead>
+                        <th>ステータス</th>
+                        <th>タスク名</th>
+                        <th></th>
+                    </thead>
+                    <tbody v-for="(todo, index) in todos">
+                        <td><input type="checkbox" v-model="todo.isDone"></td>
+                        <td><span v-bind:class="{ done: todo.isDone }">{{ todo.item }}</span></td>
+                        <td><button class="btn btn-danger" v-on:click="deleteToDoList(index)">削除</button></td>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
