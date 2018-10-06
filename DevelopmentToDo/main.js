@@ -11,6 +11,8 @@ var toDoApp = new Vue({
                 item: this.newItem
             };
             this.todos.push(todo);
+            //追加ボタンが押されるとフォームの中身がクリアされる
+            this.newItem = '';
         }
     },
 })
