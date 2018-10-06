@@ -27,6 +27,9 @@ var toDoApp = new Vue({
                 //追加ボタンが押されるとフォームの中身がクリアされる
                 this.newItem = '';
             }
-        }
+        },
+        deleteToDoList: function(index) {
+            this.todos.splice(index, 1);
+        },
     },
 })

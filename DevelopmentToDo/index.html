@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vue.jsでTODOアプリを開発</title>
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
@@ -13,7 +14,7 @@
         <form v-on:submit.prevent>
             <!-- 入力フォームが空の場合のみエラーメッセージが表示される -->
             <div v-if="toggle">
-                <span v-bind="errMsg">{{ errMsg }}</span>
+                <span v-bind="errMsg" class="err-color">{{ errMsg }}</span>
             </div>
             <input type="text" v-model="newItem">
             <button class="btn btn-primary" v-on:click="addToDoList">追加</button>
@@ -21,14 +22,13 @@
         <div class="container">
             <ol>
                 <!-- v-forディレクティブで配列todosのitemプロパティを一つずつ抜き出す -->
-                <li v-for="todo in todos">
+                <li v-for="(todo, index) in todos">
                     <input type="checkbox" v-model="todo.isDone">
-                    <span>{{ todo.item }}</span>
+                    <!-- ↓v-bindでcssクラスをバインディングする記述方法 -->
+                    <span v-bind:class="{ done: todo.isDone }">{{ todo.item }}</span>
+                    <button class="btn btn-danger" v-on:click="deleteToDoList(index)">削除</button>
                 </li>
             </ol>
-            <!-- <pre>
-                {{ $data }}
-            </pre> -->
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
