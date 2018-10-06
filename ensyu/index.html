@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.jsの演習</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 演習① dataオプションのmessageプロパティを表示させる -->
+        <p>{{ message }}</p>
+        <!-- 演習② v-bindを使ってhref属性にurlプロパティを表示させる -->
+        <a v-bind:href="url">public vue.js site!</a>
+        <br>
+        <!-- 演習③ v-ifを使ってtrueとfalseを切り替える -->
+        <a v-if="toggle" v-bind:href="url">public vue.js site!</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
