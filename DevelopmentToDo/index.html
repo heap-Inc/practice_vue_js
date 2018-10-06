@@ -11,7 +11,7 @@
     <div id="toDoApp" class="container">
         <h2>ToDoリスト</h2>
         <form v-on:submit.prevent>
-            <input type="text">
+            <input type="text" v-model="newItem">
             <button class="btn btn-primary" v-on:click="addToDoList">追加</button>
         </form>
     </div>
