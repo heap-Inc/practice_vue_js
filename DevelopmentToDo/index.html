@@ -21,8 +21,14 @@
         <div class="container">
             <ol>
                 <!-- v-forディレクティブで配列todosのitemプロパティを一つずつ抜き出す -->
-                <li v-for="todo in todos">{{ todo.item }}</li>
+                <li v-for="todo in todos">
+                    <input type="checkbox" v-model="todo.isDone">
+                    <span>{{ todo.item }}</span>
+                </li>
             </ol>
+            <!-- <pre>
+                {{ $data }}
+            </pre> -->
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>

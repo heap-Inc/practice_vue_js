@@ -19,7 +19,8 @@ var toDoApp = new Vue({
                 this.toggle = false;
                 //追加ボタンが押される度に新しいオブジェクトを作成する
                 var todo = {
-                    item: this.newItem
+                    item: this.newItem,
+                    isDone: false,
                 };
                 // 配列todosに↑todoオブジェクトを追加
                 this.todos.push(todo);
