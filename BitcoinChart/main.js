@@ -3,6 +3,7 @@ var btcChart = new Vue({
     data: {
         bpi: null,
         hasErr: false,
+        loading: true,
 
     },
     //インスタンスがマウントされた後に呼ばれる
@@ -20,6 +21,10 @@ var btcChart = new Vue({
         .catch(function(error){
             console.log(error);
             this.hasErr = true;
+        }.bind(this))
+        //通信が終わった全ての処理のあとに呼ばれる
+        .finally(function(){
+            this.loading = false;
         }.bind(this))
     },
     //小数点を二桁にするフィルターを実装する
