@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-onceの練習</title>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- 初回だけバインディングを行う。それ以降は静的HTMLでとして扱う -->
+        <p v-once>
+            {{ msg }}
+        </p>
+        <button v-on:click="clickHandler">
+            click
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script>
+            var app = new Vue({
+                //options
+                el: '#app',
+                data: {
+                    msg: 'Hello Vue.js!'
+                },
+                methods: {
+                    clickHandler: function(event) {
+                        this.msg = this.msg.split('').reverse().join('');
+                    }
+                }
+            })
+        </script>
+</body>
+</html>
